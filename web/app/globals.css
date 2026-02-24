@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #faf7f2;
+  --color-sand: #f0ebe3;
+  --color-warm-border: #e7e0d8;
+  --color-warm-border-hover: #d4cdc3;
+
+  --color-ink: #1c1917;
+  --color-ink-light: #44403c;
+  --color-ink-muted: #78716c;
+
+  --color-gold: #c49a3c;
+  --color-gold-light: #f5ecd4;
+
+  --color-egyptian: #2563eb;
+  --color-egyptian-light: #dbeafe;
+  --color-egyptian-dark: #1d4ed8;
+
+  --color-darija: #059669;
+  --color-darija-light: #d1fae5;
+  --color-darija-dark: #047857;
+
+  --color-levantine: #7c3aed;
+  --color-levantine-light: #ede9fe;
+  --color-levantine-dark: #6d28d9;
+
+  --color-msa: #d97706;
+  --color-msa-light: #fef3c7;
+  --color-msa-dark: #b45309;
+
+  --font-family-display: "Cormorant Garamond", serif;
+  --font-family-body: "Lexend", sans-serif;
+  --font-family-arabic: "Amiri", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Prevent iOS zoom on input focus */
+input, select, textarea {
+  font-size: 16px;
+}
+
+/* Better touch targets on mobile */
+@media (max-width: 640px) {
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Fix iOS tap highlight */
+  button, a {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+body {
+  font-family: var(--font-family-body);
+  color: var(--color-ink);
+  background-color: var(--color-cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Decorative geometric pattern for hero sections */
+.pattern-geo {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M30 0L60 30L30 60L0 30z' stroke='%23e7e0d8' stroke-width='0.5' opacity='0.5'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Subtle noise overlay for depth */
+.noise-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Glass header effect */
+.glass-header {
+  background: rgba(250, 247, 242, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Accent bar mixin-like approach */
+.accent-bar-egyptian { border-left: 3px solid var(--color-egyptian); }
+.accent-bar-darija { border-left: 3px solid var(--color-darija); }
+.accent-bar-levantine { border-left: 3px solid var(--color-levantine); }
+.accent-bar-msa { border-left: 3px solid var(--color-msa); }
+
+/* Spinner animation for loading */
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 1.2s linear infinite;
+}
+
+/* Stagger animation for card grids */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-up {
+  animation: fade-up 0.4s ease-out both;
+}
+
+/* Focus ring style */
+*:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-sand);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-warm-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-warm-border-hover);
+}
+
+/* Selection color */
+::selection {
+  background: var(--color-gold-light);
+  color: var(--color-ink);
+}
