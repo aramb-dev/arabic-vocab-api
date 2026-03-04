@@ -11,7 +11,7 @@
   "type": "module",
   "types": "module",
   "dependencies": {
-    "@hono/node-server": "^1.8.2",
+    "@hono/node-server": "^1.19.10",
     "csv-parser": "^3.0.0",
     "csv-writer": "^1.6.0",
     "hono": "^4.1.1",
