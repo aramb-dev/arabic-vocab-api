@@ -16,7 +16,7 @@
     "csv-writer": "^1.6.0",
     "hono": "^4.12.12",
     "pluralize": "^8.0.0",
-    "puppeteer": "^22.5.0"
+    "puppeteer": "^22.15.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.17",
